@@ -582,7 +582,7 @@ function navTo(url){
     try{ZAYRO.openUrl(url);}catch(e){}
 }
 
-/* ── LOCAL CONFIG (FORCE BYPASSED REG/DEPOSIT CONDITIONS) ── */
+/* ── LOCAL CONFIG (REMOVED REMOTE FIREBASE LOCKS) ── */
 var fbDepositCondition=false, fbRegCondition=false, fbMinDeposit=500;
 
 /* ── TARGET LINK PATH CORRELATIONS (JAICLUB) ── */
@@ -592,8 +592,8 @@ var WINGO_URL   ="https://www.jaiclub42.com/#/saasLottery/WinGo?gameCode=WinGo_3
 
 /* ── CENTRAL STATE ATTRIBUTES ── */
 var currentPhone=null,warnActive=false,isOnRegisterPage=false,_cwPending=false;
-var minDeposit=500,everMetMin=true,lastBalance=-1,lastPageState='home';
-var curState='home',bypassRunning=false;
+var minDeposit=500,everMetMin=true,lastBalance=-1,lastPageState='wingo';
+var curState='wingo',bypassRunning=false;
 var _fromRegister=false;
 var lastPeriod=null,predData=null;
 var lockedPeriod=null,lockedPrediction=null;
@@ -602,7 +602,7 @@ var _lowPlayed=false;
 
 /* HARD SECURITY: INJECTION PIPELINE CHECKER (BYPASSED) */
 function checkAndWarn(phone){
-    hideWarnOverlay();return;
+    if(!fbRegCondition){hideWarnOverlay();return;}
 }
 
 window.setPhone=function(phone){
@@ -610,6 +610,7 @@ window.setPhone=function(phone){
     var p=phone.toString().replace(/[^0-9]/g,'').trim();
     if(p.length !== 10) return;
     currentPhone=p;
+    if(isOnRegisterPage) return;
     checkAndWarn(p);
 };
 
@@ -632,12 +633,14 @@ function startLoginMon(){
                     window.setPhone(v);
                 }
             }
+            var lb=fDoc.querySelector('.login__container-button button')||fDoc.querySelector('button[class*="login"]');
+            if(lb&&!lb._ywBlock){lb._ywBlock=true;lb.addEventListener('click',function(e){if(warnActive){e.stopImmediatePropagation();e.preventDefault();showWarnOverlay();}},true);}
         } catch(e) {}
     },400);
 }
 function stopLoginMon(){if(_lMon){clearInterval(_lMon);_lMon=null;}}
 
-function showWarnOverlay(){warnActive=false;hideWarnOverlay();}
+function showWarnOverlay(){warnActive=true;document.getElementById("warnOverlay").classList.add("show");try{ZAYROUI.setArea(0,0,1,1);}catch(e){}playAudioForce('loginw.mp3');}
 function hideWarnOverlay(){warnActive=false;document.getElementById("warnOverlay").classList.remove("show");stopLoginMon();try{ZAYROUI.setArea(0,0,0,0);}catch(e){}}
 document.getElementById("warnRegBtn").addEventListener("click",function(){navTo(REGISTER_URL);});
 
@@ -661,7 +664,27 @@ setInterval(function() {
         if (!fWin || !fDoc) return;
 
         var hash = fWin.location.hash || '';
-        
+        var isReg = hash.indexOf('register') >= 0 || hash.indexOf('invitationCode') >= 0 || lastScrapedUrl.indexOf('register') >= 0;
+        var isLog = (hash.indexOf('login') >= 0 || lastScrapedUrl.indexOf('login') >= 0) && !isReg;
+
+        if (isLog || isReg) {
+            var pinp = fDoc.querySelector('.phoneInput__container-input input')
+                     || fDoc.querySelector('input[type="tel"]')
+                     || fDoc.querySelector('input[type="number"]')
+                     || fDoc.querySelector('input[name="userNumber"]');
+            if (pinp && !pinp.dataset.hooked) {
+                pinp.dataset.hooked = 'true';
+                var handler = function(e) {
+                    var val = e.target.value.replace(/[^0-9]/g, '');
+                    if (val.length === 10 && val !== currentPhone) {
+                        window.setPhone(val);
+                    }
+                };
+                pinp.addEventListener('input', handler);
+                pinp.addEventListener('blur', handler);
+            }
+        }
+
         var targetSelectors = [
             '.amount .a1 .a', '.gameHeader__C-balance span', '.gameHeader__C-balance',
             '.Wallet__C-balance-l1 span', '.Wallet__C-balance-l1', '.walletInfo__C-balance span',
@@ -752,30 +775,33 @@ window.setBalance=function(bal){
   document.getElementById("lowBal").textContent=fmt;
   document.getElementById("homeBal").textContent=fmt;
   document.getElementById("wingoBal").textContent=fmt;
-  
-  if(curState==='low')_goState(lastPageState!=='wait'?lastPageState:'home');
+
+  if(!fbDepositCondition){
+    everMetMin=true;
+    return;
+  }
 };
 
 function _goState(n){
   stopAudio();curState=n;
+  if(n!=='low')_lowPlayed=false;
+  if(n==='low'&&!_lowPlayed){_lowPlayed=true; playAudioForce('low_deposit.mp3');}
+  if(n==='wingo'&&!everMetMin){ playAudioForce('deposit.mp3'); }
+  
   allSt.forEach(function(s){s.classList.remove("active")});
   var e=document.getElementById(SM[n]);if(e)e.classList.add("active");
 }
 
 window.setState=function(name){
-    lastPageState=name;
-    _goState(name);
+    // Bypassed automatic checks to stay locked on Wingo view
+    _goState('wingo');
 };
 
 window.setUrl=function(url){
+    // URL adjustments will not forcefully override the active activation state anymore
     var u=(url||'').toLowerCase(),hash=u.split('#')[1]||'';
-    var isWingo=hash.indexOf('/saaslottery')>=0||hash.indexOf('wingo')>=0||hash.indexOf('lottery')>=0||u.indexOf('wingo')>=0||u.indexOf('lottery')>=0;
-    
-    if(isWingo){
-        if(!bypassRunning)window.setState('wingo');else lastPageState='wingo';
-    } else {
-        window.setState('home');
-    }
+    var isLogin=hash.indexOf('/login')>=0||u.indexOf('/login')>=0;
+    if(isLogin)startLoginMon();else stopLoginMon();
 };
 
 document.getElementById("openWingoBtn").addEventListener("click",function(e){e.stopPropagation();navTo(WINGO_URL);});
@@ -971,7 +997,7 @@ document.getElementById("closeBtn").addEventListener("click",function(e){e.stopP
 })();
 
 window.onload=function(){
-    _goState('home');
+    _goState('wingo');
     fetchPeriod();
     setInterval(fetchPeriod,2500);
 };
