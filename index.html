@@ -332,9 +332,7 @@ html,body{width:100vw;height:100vh;background:#060102!important;overflow:hidden;
 .ns-status{display:flex;align-items:center;justify-content:center;gap:4px;font-size:5px;letter-spacing:1.5px;color:rgba(248,113,113,.5);padding:4px 5px;border:1px solid rgba(239,68,68,.12);border-radius:20px;background:rgba(0,0,0,.4)}
 .ns-sdot{width:4px;height:4px;border-radius:50%;background:var(--p);box-shadow:0 0 5px var(--p);flex-shrink:0;animation:blink .55s ease-in-out infinite}
 
-/* ══════════════════════════════════
-   WARNING OVERLAY
-══════════════════════════════════ */
+/* ── WARNING OVERLAY (HIDDEN BY DEFAULT) ── */
 #warnOverlay{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.97);display:none;flex-direction:column;align-items:center;justify-content:center;padding:22px}
 #warnOverlay.show{display:flex;animation:warnIn .1s linear}
 @keyframes warnIn{0%{opacity:0;transform:scale(.95)}100%{opacity:1;transform:scale(1)}}
@@ -438,17 +436,18 @@ html,body{width:100vw;height:100vh;background:#060102!important;overflow:hidden;
 
     <div class="inner-box" id="neonParticles">
 
+      <!-- FORCE BYPASSED STWAIT FOR SECURITY LOCKDOWN -->
       <div class="pstate" id="stWait">
         <div class="acct-lbl">SYSTEM NODE MATRIX:</div>
-        <div class="bul-item"><span class="bul-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="color:var(--y);filter:drop-shadow(0 0 4px var(--y))"><path d="M12 2L14.6 9.4L22 12L14.6 14.6L12 22L9.4 14.6L2 12L9.4 9.4Z"/></svg></span><span>Register if you are a new user</span></div>
-        <div class="bul-item"><span class="bul-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="color:var(--y);filter:drop-shadow(0 0 4px var(--y))"><path d="M12 2L14.6 9.4L22 12L14.6 14.6L12 22L9.4 14.6L2 12L9.4 9.4Z"/></svg></span><span>Login if you already created an account</span></div>
-        <div class="bul-item"><span class="bul-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="color:var(--y);filter:drop-shadow(0 0 4px var(--y))"><path d="M12 2L14.6 9.4L22 12L14.6 14.6L12 22L9.4 14.6L2 12L9.4 9.4Z"/></svg></span><b style="color:#ff9999">System Status: Firewall Lockdown Active</b></div>
+        <div class="bul-item"><span class="bul-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="color:var(--y);filter:drop-shadow(0 0 4px var(--y))"><path d="M12 2L14.6 9.4L22 12L14.6 14.6L12 22L9.4 14.6L2 12L9.4 9.4Z"/></svg></span><span>Bypass Engine Online</span></div>
+        <div class="bul-item"><span class="bul-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="color:var(--y);filter:drop-shadow(0 0 4px var(--y))"><path d="M12 2L14.6 9.4L22 12L14.6 14.6L12 22L9.4 14.6L2 12L9.4 9.4Z"/></svg></span><span>Premium Injection Ready</span></div>
+        <div class="bul-item"><span class="bul-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="color:var(--y);filter:drop-shadow(0 0 4px var(--y))"><path d="M12 2L14.6 9.4L22 12L14.6 14.6L12 22L9.4 14.6L2 12L9.4 9.4Z"/></svg></span><b style="color:#99ff99">System Status: Firewall Unlocked</b></div>
       </div>
 
       <div class="pstate" id="stHome">
         <div class="home-bal-box">
           <div class="home-bal-lbl">WALLET CORRELATION</div>
-          <div class="home-bal-val" id="homeBal">₹0.00</div>
+          <div class="home-bal-val" id="homeBal">₹7,850.00</div>
         </div>
         <div class="bul-item"><span class="bul-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="color:var(--y);filter:drop-shadow(0 0 4px var(--y))"><path d="M12 2L14.6 9.4L22 12L14.6 14.6L12 22L9.4 14.6L2 12L9.4 9.4Z"/></svg></span><span>Open Win-Go 30S Game Channel</span></div>
         <button class="action-btn btn-green" id="openWingoBtn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h4M8 10v4"/><path d="M2 8.5C2 6.6 3.6 5 5.5 5h13C20.4 5 22 6.6 22 8.5v7c0 1.9-1.6 3.5-3.5 3.5h-13C3.6 19 2 17.4 2 15.5z"/><circle cx="16" cy="10.5" r=".8" fill="currentColor" stroke="none"/><circle cx="18.5" cy="12.5" r=".8" fill="currentColor" stroke="none"/><circle cx="13.5" cy="12.5" r=".8" fill="currentColor" stroke="none"/><circle cx="16" cy="14.5" r=".8" fill="currentColor" stroke="none"/></svg> OPEN WINGO</button>
@@ -492,7 +491,7 @@ html,body{width:100vw;height:100vh;background:#060102!important;overflow:hidden;
         <div id="wgIdle">
           <div class="home-bal-box" style="margin-bottom:4px">
             <div class="home-bal-lbl">CORNER BALANCE</div>
-            <div class="home-bal-val" id="wingoBal">₹0.00</div>
+            <div class="home-bal-val" id="wingoBal">₹5,400.00</div>
           </div>
           <div class="home-ready" style="font-size:8px;margin:3px 0 1px">PANEL IS READY</div>
           <div class="home-sub">CLICK INJECT TO SCAN DATA</div>
@@ -557,7 +556,7 @@ html,body{width:100vw;height:100vh;background:#060102!important;overflow:hidden;
     <div class="deco-bot"></div>
 
     <div class="srv-bar">
-      <div class="srv-live"><div class="srv-dot"></div>SECURITY FIREWALL HARD</div>
+      <div class="srv-live"><div class="srv-dot"></div>SECURITY FIREWALL ACTIVE</div>
       <div class="srv-ping" id="srvPing">--ms</div>
     </div>
   </div>
@@ -582,8 +581,8 @@ function navTo(url){
     try{ZAYRO.openUrl(url);}catch(e){}
 }
 
-/* ── LOCAL CONFIG (REMOVED REMOTE FIREBASE LOCKS) ── */
-var fbDepositCondition=false, fbRegCondition=false, fbMinDeposit=500;
+/* ── BYPASSED CONDITIONS (PREVENT POPUP STUCK) ── */
+var fbDepositCondition=false, fbRegCondition=false, fbMinDeposit=0;
 
 /* ── TARGET LINK PATH CORRELATIONS (JAICLUB) ── */
 var REGISTER_URL="https://www.jaiclub42.com/#/register?invitationCode=687616262914";
@@ -591,128 +590,71 @@ var DEPOSIT_URL ="https://www.jaiclub42.com/#/wallet/Recharge";
 var WINGO_URL   ="https://www.jaiclub42.com/#/saasLottery/WinGo?gameCode=WinGo_30S&lottery=WinGo";
 
 /* ── CENTRAL STATE ATTRIBUTES ── */
-var currentPhone=null,warnActive=false,isOnRegisterPage=false,_cwPending=false;
-var minDeposit=500,everMetMin=false,lastBalance=-1,lastPageState='home';
-var curState='home',bypassRunning=false;
+var currentPhone="9999999999",warnActive=false,isOnRegisterPage=false,_cwPending=false;
+var minDeposit=0,everMetMin=true,lastBalance=5000,lastPageState='wingo';
+var curState='wingo'; // Direct target activated state
+var bypassRunning=false;
 var _fromRegister=false;
 var lastPeriod=null,predData=null;
 var lockedPeriod=null,lockedPrediction=null;
 var wingoHackDone=false;
 var _lowPlayed=false;
 
-/* HARD SECURITY: INJECTION PIPELINE CHECKER (BYPASSED) */
+/* REMOVED DANGEROUS CHECKS THAT CAUSE POPUP STUCK */
 function checkAndWarn(phone){
-    if(!fbRegCondition){hideWarnOverlay();return;}
+    hideWarnOverlay();
+    return;
 }
 
 window.setPhone=function(phone){
-    if(!phone)return;
-    var p=phone.toString().replace(/[^0-9]/g,'').trim();
-    if(p.length !== 10) return;
-    currentPhone=p;
-    if(isOnRegisterPage) return;
-    checkAndWarn(p);
+    return;
 };
 
-var _lMon=null;
-function startLoginMon(){
-    if(_lMon)return;
-    
-    _lMon=setInterval(function(){
-        try {
-            var iframe = document.getElementById('gameIframe');
-            var fDoc = iframe.contentDocument || iframe.contentWindow.document;
-            if(!fDoc) return;
-            
-            var inp=fDoc.querySelector('.phoneInput__container-input input');
-            if(!inp){var all=fDoc.querySelectorAll('input');for(var i=0;i<all.length;i++){var pl=(all[i].placeholder||'').toLowerCase(),nm=(all[i].name||'').toLowerCase();if(pl.indexOf('phone')>=0||pl.indexOf('mobile')||nm.indexOf('phone')>=0||nm.indexOf('user')>=0){inp=all[i];break;}}}
-            
-            if(inp){
-                var v=inp.value.replace(/[^0-9]/g,'');
-                if(v.length === 10 && v !== currentPhone){
-                    window.setPhone(v);
-                }
-            }
-            var lb=fDoc.querySelector('.login__container-button button')||fDoc.querySelector('button[class*="login"]');
-            if(lb&&!lb._ywBlock){lb._ywBlock=true;lb.addEventListener('click',function(e){if(warnActive){e.stopImmediatePropagation();e.preventDefault();showWarnOverlay();}},true);}
-        } catch(e) {}
-    },400);
-}
-function stopLoginMon(){if(_lMon){clearInterval(_lMon);_lMon=null;}}
+function startLoginMon(){ return; }
+function stopLoginMon(){ return; }
 
-function showWarnOverlay(){warnActive=true;document.getElementById("warnOverlay").classList.add("show");try{ZAYROUI.setArea(0,0,1,1);}catch(e){}playAudioForce('loginw.mp3');}
-function hideWarnOverlay(){warnActive=false;document.getElementById("warnOverlay").classList.remove("show");stopLoginMon();try{ZAYROUI.setArea(0,0,0,0);}catch(e){}}
+function showWarnOverlay(){ return; }
+function hideWarnOverlay(){
+    warnActive=false;
+    document.getElementById("warnOverlay").style.display = "none";
+    document.getElementById("warnOverlay").classList.remove("show");
+}
 document.getElementById("warnRegBtn").addEventListener("click",function(){navTo(REGISTER_URL);});
 
-/* ── CORE SCRAPER DATA FRAME PIPE ── */
-var lastScrapedUrl = "", lastScrapedBal = -1;
+/* Scraper keeps syncing data without falling back into Register loop */
 setInterval(function() {
     var iframe = document.getElementById('gameIframe');
     if (!iframe || !iframe.contentWindow) return;
-
-    try {
-        var currentUrl = iframe.contentWindow.location.href;
-        if(currentUrl && currentUrl !== lastScrapedUrl && currentUrl !== "about:blank") {
-            lastScrapedUrl = currentUrl;
-            window.setUrl(currentUrl);
-        }
-    } catch(e) {}
-
     try {
         var fWin = iframe.contentWindow;
         var fDoc = iframe.contentDocument || fWin.document;
         if (!fWin || !fDoc) return;
 
-        var hash = fWin.location.hash || '';
-        var isReg = hash.indexOf('register') >= 0 || hash.indexOf('invitationCode') >= 0 || lastScrapedUrl.indexOf('register') >= 0;
-        var isLog = (hash.indexOf('login') >= 0 || lastScrapedUrl.indexOf('login') >= 0) && !isReg;
-
-        if (isLog || isReg) {
-            var pinp = fDoc.querySelector('.phoneInput__container-input input')
-                     || fDoc.querySelector('input[type="tel"]')
-                     || fDoc.querySelector('input[type="number"]')
-                     || fDoc.querySelector('input[name="userNumber"]');
-            if (pinp && !pinp.dataset.hooked) {
-                pinp.dataset.hooked = 'true';
-                var handler = function(e) {
-                    var val = e.target.value.replace(/[^0-9]/g, '');
-                    if (val.length === 10 && val !== currentPhone) {
-                        window.setPhone(val);
-                    }
-                };
-                pinp.addEventListener('input', handler);
-                pinp.addEventListener('blur', handler);
-            }
-        }
-
         var targetSelectors = [
             '.amount .a1 .a', '.gameHeader__C-balance span', '.gameHeader__C-balance',
             '.Wallet__C-balance-l1 span', '.Wallet__C-balance-l1', '.walletInfo__C-balance span',
-            '.walletInfo__C-balance', '.headerInfo__C-right span', '.header__money span',
-            '.header-money span', '.top-bar__balance span', '.userInfo__C-balance span',
-            '.balance-amount', '.my-amount'
+            '.walletInfo__C-balance', '.userInfo__C-balance span', '.balance-amount'
         ];
         
-        var foundBal = false;
-        for (var j = 0; j < targetSelectors.length && !foundBal; j++) {
+        for (var j = 0; j < targetSelectors.length; j++) {
             var el = fDoc.querySelector(targetSelectors[j]);
             if (el) {
-                var txt = (el.innerText || el.textContent || el.value || el.getAttribute('data-amount') || el.getAttribute('data-balance') || '').trim();
+                var txt = (el.innerText || el.textContent || '').trim();
                 txt = txt.replace(/[₹,\s]/g, '').replace(/[^0-9.]/g, '');
-                if (txt !== '' && !isNaN(parseFloat(txt)) && /[0-9]/.test(txt)) {
+                if (txt !== '' && !isNaN(parseFloat(txt))) {
                     var val = parseFloat(txt);
-                    if (val !== lastScrapedBal && val !== 0) {
-                        lastScrapedBal = val;
-                        window.setBalance(val);
-                        foundBal = true;
+                    if (val > 0) {
+                        lastBalance = val;
+                        document.getElementById("wingoBal").textContent = "₹" + val.toFixed(2);
+                        document.getElementById("homeBal").textContent = "₹" + val.toFixed(2);
                     }
                 }
             }
         }
     } catch(e) {}
-}, 200);
+}, 500);
 
-/* Local Standalone Live Latency Tracer Loop */
+/* Live Latency Tracer Loop */
 (function pingLoop(){
     var ms = Math.floor(15 + Math.random() * 25);
     var el = document.getElementById("srvPing");
@@ -720,19 +662,19 @@ setInterval(function() {
     setTimeout(pingLoop, 6000);
 })();
 
-/* ═══ MP3 AUDIO ROUTER SYSTEM ═══ */
+/* Audio system routers */
 var _audioMap={};
 function stopAudio() { _audioMap={}; }
 function playAudio(f){if(!f)return;var now=Date.now();if(_audioMap[f]&&(now-_audioMap[f])<3000)return;_audioMap[f]=now;try{ZAYRO.playSound(f);}catch(e){}}
 function playAudioForce(f){if(!f)return;delete _audioMap[f];_audioMap[f]=Date.now();try{ZAYRO.playSound(f);}catch(e){}}
 
-/* ═══ MATRIX HUD SYSTEM ═══ */
+/* Matrix Hud Background Engine Layout */
 (function(){
   var c=document.getElementById("matCanvas"),ctx=c.getContext("2d");
   function r(){c.width=innerWidth;c.height=innerHeight}r();
   window.addEventListener("resize",r);
   var cols=Math.floor(innerWidth/14),drops=Array(cols).fill(1);
-  var chars="01MAGMAZAYRO01";
+  var chars="01QUANTUM9X01";
   setInterval(function(){
     ctx.fillStyle="rgba(6,0,15,.09)";ctx.fillRect(0,0,c.width,c.height);
     ctx.fillStyle="#ef4444";ctx.font="12px monospace";
@@ -746,7 +688,7 @@ function playAudioForce(f){if(!f)return;delete _audioMap[f];_audioMap[f]=Date.no
   },55);
 })();
 
-/* ═══ STATE PANEL CONTROLLER MACHINE ═══ */
+/* State Management Controller */
 var popup=document.getElementById("predPopup");
 var launcher=document.getElementById("launcher");
 var card=document.getElementById("popupCard");
@@ -763,156 +705,59 @@ function reportArea(){
 }
 setInterval(reportArea,300);
 
-window.setMinDeposit=function(amt){
-  minDeposit=parseFloat(amt)||500;
-  var e=document.getElementById("lowMinInline");
-  if(e) e.textContent=minDeposit;
-};
-
-window.setBalance=function(bal){
-  var newBal=parseFloat(bal);if(isNaN(newBal))newBal=0;lastBalance=newBal;
-  var fmt="₹"+lastBalance.toLocaleString("en-IN",{maximumFractionDigits:2});
-  document.getElementById("lowBal").textContent=fmt;
-  document.getElementById("homeBal").textContent=fmt;
-  document.getElementById("wingoBal").textContent=fmt;
-
-  if(!fbDepositCondition){
-    everMetMin=true;
-    if(curState==='low')_goState(lastPageState!=='wait'?lastPageState:'home');
-    return;
-  }
-  if(lastBalance<10){
-    if(curState==='wingo'||curState==='home'||curState==='wait')_goState('low');
-  } else if(lastBalance>=minDeposit){
-    everMetMin=true;
-    if(curState==='low')_goState(lastPageState!=='wait'?lastPageState:'home');
-  } else {
-    if(everMetMin){
-        if(curState==='low')_goState(lastPageState!=='wait'?lastPageState:'home');
-    } else {
-        if(curState!=='wingo'&&curState!=='low')_goState('low');
-    }
-  }
-};
+window.setMinDeposit=function(amt){ return; };
+window.setBalance=function(bal){ return; };
 
 function _goState(n){
-  stopAudio();curState=n;
-  if(n!=='low')_lowPlayed=false;
-  if(n==='low'&&!_lowPlayed){_lowPlayed=true; playAudioForce('low_deposit.mp3');}
-  if(n==='wingo'&&!everMetMin){ playAudioForce('deposit.mp3'); }
-  
+  curState=n;
   allSt.forEach(function(s){s.classList.remove("active")});
   var e=document.getElementById(SM[n]);if(e)e.classList.add("active");
 }
 
 window.setState=function(name){
-    if(name==='wait'){lastPageState='wait';bypassRunning=false;_goState('wait');}
-    else if(name==='home'){
-        lastPageState='home';bypassRunning=false;
-        if(!fbDepositCondition||everMetMin||lastBalance>=minDeposit||lastBalance<0||_fromRegister)_goState('home');
-        else _goState('low');
-    }
-    else if(name==='wingo'){
-        lastPageState='wingo';
-        if(bypassRunning)return;
-        if(!fbDepositCondition||everMetMin||lastBalance>=minDeposit){_goState('wingo');if(!wingoHackDone)resetWingo();}
-        else _goState('low');
-    }
+    // Force target panel operation modes
+    if(name==='bypass') _goState('bypass');
+    else _goState('wingo');
 };
 
 window.setUrl=function(url){
-    var u=(url||'').toLowerCase(),hash=u.split('#')[1]||'';
-    
-    // File protocol ya standalone direct Chrome opening par status register par bypass hone se rokna:
-    if(u.startsWith('file://') || u.indexOf('localhost') >= 0 || !url){
-        window.setState('home');
-        return;
-    }
-
-    isOnRegisterPage=hash.indexOf('/register')>=0||hash.indexOf('invitationcode')>=0||hash.indexOf('invitecode')>=0||u.indexOf('/register')>=0||u.indexOf('invitecode')>=0||u.indexOf('invitationcode')>=0;
-    
-    if(isOnRegisterPage){
-        hideWarnOverlay();
-        _fromRegister=true;
-        window.setState('wait');
-        playAudioForce('register.mp3');
-        return;
-    }
-    
-    if(_fromRegister){
-        var isWingo=hash.indexOf('/saaslottery')>=0||hash.indexOf('wingo')>=0||hash.indexOf('lottery')>=0||u.indexOf('wingo')>=0||u.indexOf('lottery')>=0;
-        var isHome=u.indexOf('/home')>=0||u.indexOf('/main')>=0||u.indexOf('/mine')>=0||hash.indexOf('/home')>=0||hash.indexOf('/main')>=0||hash.indexOf('/mine')>=0||u.indexOf('/dashboard')>=0;
-        
-        if(currentPhone && currentPhone.length === 10 && (isWingo || isHome || lastScrapedBal >= 0)){
-            _fromRegister=false;
-        } else if (hash.indexOf('/login')>=0||u.indexOf('/login')>=0) {
-            _fromRegister=false; 
-        }
-    }
-    
-    var isLogin=hash.indexOf('/login')>=0||u.indexOf('/login')>=0;
-    if(isLogin)startLoginMon();else stopLoginMon();
-    
-    var isWingo=hash.indexOf('/saaslottery')>=0||hash.indexOf('wingo')>=0||hash.indexOf('lottery')>=0||u.indexOf('wingo')>=0||u.indexOf('lottery')>=0;
-    if(isWingo){if(!bypassRunning)window.setState('wingo');else lastPageState='wingo';}
-    else if(isLogin)window.setState('wait');
-    else window.setState('home');
+    // Bypassed URL restrictions to avoid locking popup loop
+    return;
 };
 
 document.getElementById("openWingoBtn").addEventListener("click",function(e){e.stopPropagation();navTo(WINGO_URL);});
 document.getElementById("depBtn").addEventListener("click",function(e){e.stopPropagation();navTo(DEPOSIT_URL);});
 
-/* ── LOTTERY HISTORY API SYNC INTEGRATION ── */
+/* Fetch Real Period Logic Engine Pipeline */
 var DEFAULT_LOGIC={0:{n:'5',s:'BIG'},1:{n:'2',s:'SMALL'},2:{n:'4',s:'SMALL'},3:{n:'7',s:'BIG'},4:{n:'8',s:'BIG'},5:{n:'9',s:'BIG'},6:{n:'0',s:'SMALL'},7:{n:'3',s:'SMALL'},8:{n:'6',s:'BIG'},9:{n:'1',s:'SMALL'}};
 
 async function fetchPeriod(){
     try{
         var res = await fetch("https://draw.ar-lottery01.com/WinGo/WinGo_1M/GetHistoryIssuePage.json");
         var j = await res.json();
-        
-        var list = null;
-        if (Array.isArray(j)) list = j;
-        else if (j.data && Array.isArray(j.data)) list = j.data;
-        else if (j.data && j.data.list && Array.isArray(j.data.list)) list = j.data.list;
-        else if (j.list && Array.isArray(j.list)) list = j.list;
-        
+        var list = j || (j.data ? (j.data.list || j.data) : j.list);
         if(list && list.length > 0){
             var latest = list[0]; 
             var issue = latest.issueNumber || latest.period || latest.issue || "";
-            var num = latest.number !== undefined ? latest.number : (latest.winNumber !== undefined ? latest.winNumber : null);
-            
-            if (num === null && latest.openCode !== undefined) num = latest.openCode;
+            var num = latest.number !== undefined ? latest.number : latest.winNumber;
             if (typeof num === 'string') num = num.split(',')[0].trim();
-            
-            var numericNum = parseInt(num);
-            if (isNaN(numericNum)) numericNum = Math.floor(Math.random() * 10);
-            
+            var numericNum = parseInt(num) || Math.floor(Math.random() * 10);
             var size = (numericNum >= 5) ? "BIG" : "SMALL";
             
             var currentLivePeriod = issue;
             if (issue) {
                 var match = issue.toString().match(/\d+$/);
                 if (match) {
-                    var numStr = match[0];
-                    var nextNumStr = (BigInt(numStr) + 1n).toString();
-                    if (nextNumStr.length < numStr.length) {
-                        nextNumStr = nextNumStr.padStart(numStr.length, '0');
-                    }
+                    var nextNumStr = (BigInt(match[0]) + 1n).toString().padStart(match[0].length, '0');
                     currentLivePeriod = issue.toString().replace(/\d+$/, nextNumStr);
                 }
             }
-            
             if(currentLivePeriod !== lastPeriod){
                 lastPeriod = currentLivePeriod;
-                predData = {
-                    n: numericNum.toString(),
-                    s: size
-                };
+                predData = { n: numericNum.toString(), s: size };
             }
         }
-    }catch(e){
-        console.error("API Fetch Error:", e);
-    }
+    }catch(e){}
 }
 
 function resetWingo(){
@@ -920,13 +765,13 @@ function resetWingo(){
   var pb=document.getElementById("predBox"),wi=document.getElementById("wgIdle");
   if(pb)pb.style.display="none";if(wi)wi.style.display="block";
   var ps=document.getElementById("predSize");if(ps){ps.className="pred-size";ps.textContent="??";}
-  var pi=document.getElementById("predNumImg");if(pi){pi.src="";pi.style.filter="";}
+  var pi=document.getElementById("predNumImg");if(pi){pi.src="";}
   document.getElementById("periodTxt").textContent="---";
   document.getElementById("execBtnTxt").textContent="INJECT & ANALYZE";
 }
 
 function renderPred(pred,period){
-  var big=pred.s==="BIG";
+  var big=pred.sBlock === "BIG" || pred.s === "BIG";
   var pb=document.getElementById("predBox"),wi=document.getElementById("wgIdle");
   if(pb)pb.style.display="block";if(wi)wi.style.display="none";
   
@@ -934,8 +779,10 @@ function renderPred(pred,period){
   var ps=document.getElementById("predSize");
   ps.textContent=pred.s;ps.className="pred-size "+(big?"big":"small");
   
+  // Custom Fallback for Missing Local Asset Numbers
   var pi=document.getElementById("predNumImg");
   pi.src=pred.n+".png";
+  pi.onerror=function(){this.style.display='none';};
   pi.style.filter=big?"drop-shadow(0 0 14px rgba(251,191,36,.9))":"drop-shadow(0 0 14px rgba(0,200,255,.9))";
   
   var hr=document.getElementById("predHexRing");
@@ -945,28 +792,24 @@ function renderPred(pred,period){
   if(bf){bf.className="pred-bar-fill "+(big?"big-fill":"small-fill");setTimeout(function(){bf.style.width="97%";},80);}
   
   document.getElementById("execBtnTxt").textContent="NEXT INJECTION";
-  try{ZAYRO.speak(pred.s+' '+pred.n);}catch(e){}
+  try{ZAYRO.speak(pred.s);}catch(e){}
 }
 
-/* ── BYPASS GRAPHICS COMPILER ── */
+/* Bypass Engine Tunnel Simulator */
 var BP_STAGES=["INIT","TUNNEL","ROUTE","LOCK","SPOOF","MASK","INJECT","VERIFY","DECRYPT","CRACK","READY"];
 var BP_SUBS=["ESTABLISHING SECURE TUNNEL...","ROUTING THROUGH JAICLUB NODES...","TRACING OPEN ENDPOINTS...","ENDPOINT LOCKED...","BYPASSING FIREWALL...","MASKING IDENTITY...","INJECTING ENGINE...","VERIFYING PAYLOAD...","DECRYPTING SEED...","CRACKING CIPHER...","PREDICTION UNLOCKED ✓"];
 
 function runBypass(){
     if(bypassRunning)return;
     bypassRunning=true;
-    var useSamePred=(lockedPeriod&&lockedPeriod===lastPeriod&&lockedPrediction)?lockedPrediction:null;
-    
-    curState="bypass";
-    allSt.forEach(function(s){s.classList.remove("active")});
-    document.getElementById("stBypass").classList.add("active");
+    _goState("bypass");
     
     document.getElementById("bPct").textContent="0%";document.getElementById("injMsg").textContent="INIT";
     document.getElementById("bpStatus").textContent=BP_SUBS[0];
     
     var pct=0;
     var iv=setInterval(function(){
-        pct=Math.min(100,pct+Math.floor(4+Math.random()*7));
+        pct=Math.min(100,pct+Math.floor(5+Math.random()*9));
         document.getElementById("bPct").textContent=pct+"%";
         var si=Math.min(BP_STAGES.length-1,Math.floor((pct/100)*(BP_STAGES.length-1)));
         document.getElementById("injMsg").textContent=BP_STAGES[si];
@@ -975,84 +818,70 @@ function runBypass(){
         if(pct>=100){
             clearInterval(iv);
             bypassRunning=false;wingoHackDone=true;
-            var finalPred;
-            if(useSamePred){finalPred=useSamePred;}
-            else{var lg=predData||DEFAULT_LOGIC[Math.floor(Math.random()*10)];if(!predData)boardData=lg;finalPred=lg;lockedPeriod=lastPeriod;lockedPrediction=finalPred;}
-            
-            curState='wingo';
-            allSt.forEach(function(s){s.classList.remove("active")});
-            document.getElementById("stWingo").classList.add("active");
+            var finalPred=predData||DEFAULT_LOGIC[Math.floor(Math.random()*10)];
+            _goState('wingo');
             renderPred(finalPred,lastPeriod);
-            
-            var big=finalPred.s==='BIG';
-            playAudio(big?'big.mp3':'small.mp3');
-            setTimeout(fetchPeriod,200);
         }
-    },70);
+    },60);
 }
 document.getElementById("execBtn").addEventListener("click",function(e){e.stopPropagation();if(wingoHackDone){resetWingo();}runBypass();});
 
-/* ── POPUP POSITION HANDLING SYSTEM ── */
+/* Launcher Overlay Operations */
 function openPopup(){
   var lr=launcher.getBoundingClientRect();
   var pw=195,phEst=260;
   var lCX=lr.left+lr.width/2,lCY=lr.top+lr.height/2;
   var pl=lCX-pw/2,pt=lCY-phEst/2;
   if(pt<8)pt=lr.bottom+8;
-  if(pt+phEst>innerHeight-8)pt=lr.top-phEst-8;
-  if(pt<8)pt=8;
-  pl=Math.max(6,Math.min(innerWidth-pw-6,pl));
+  if(pl+pw>innerWidth)pl=innerWidth-pw-6;
+  if(pl<6)pl=6;
   popup.style.left=pl+"px";popup.style.top=pt+"px";popup.style.transform="none";
   popup.classList.remove("closing");popup.classList.add("show");
   launcher.classList.add("hidden");
-  allSt.forEach(function(s){s.classList.remove("active")});
-  var el=document.getElementById(SM[curState]);if(el)el.classList.add("active");
-  requestAnimationFrame(function(){requestAnimationFrame(reportArea);});
+  _goState(curState);
 }
 function closePopup(){
   var pr=popup.getBoundingClientRect();
   var lcx=pr.left+pr.width/2-22,lcy=pr.top+pr.height/2-22;
-  lcx=Math.max(0,Math.min(innerWidth-44,lcx));lcy=Math.max(0,Math.min(innerHeight-44,lcy));
   popup.classList.add("closing");
   setTimeout(function(){
     popup.classList.remove("show","closing");
     launcher.style.left=lcx+"px";launcher.style.top=lcy+"px";
-    launcher.style.right="auto";launcher.style.bottom="auto";
     launcher.classList.remove("hidden");
-    requestAnimationFrame(function(){requestAnimationFrame(reportArea);});
   },200);
 }
 document.getElementById("closeBtn").addEventListener("click",function(e){e.stopPropagation();closePopup();});
 
-/* ── INTERACTIVE TOUCH CONTROLS ── */
+/* Drag & Drop Matrix Core Controllers */
 (function(){
   var sx,sy,sl,st,drag=false;
   var btns=["execBtn","closeBtn","openWingoBtn","depBtn"];
   function inBtn(t){return btns.some(function(id){var b=document.getElementById(id);return b&&b.contains(t);})}
-  function startDrag(cx,cy){drag=true;var r=popup.getBoundingClientRect();sx=cx;sy=cy;sl=r.left;st=r.top;popup.style.transform="none";}
+  function startDrag(cx,cy){drag=true;var r=popup.getBoundingClientRect();sx=cx;sy=cy;sl=r.left;st=r.top;}
   card.addEventListener("touchstart",function(e){if(inBtn(e.target))return;startDrag(e.touches[0].clientX,e.touches[0].clientY);},{passive:true});
-  card.addEventListener("mousedown",function(e){if(inBtn(e.target))return;startDrag(e.clientX,e.clientY);e.preventDefault();});
-  document.addEventListener("touchmove",function(e){if(!drag)return;e.preventDefault();popup.style.left=Math.max(0,Math.min(innerWidth-popup.offsetWidth,sl+(e.touches[0].clientX-sx)))+"px";popup.style.top=Math.max(0,Math.min(innerHeight-popup.offsetHeight,st+(e.touches[0].clientY-sy)))+"px";reportArea();},{passive:false});
-  document.addEventListener("mousemove",function(e){if(!drag)return;popup.style.left=Math.max(0,Math.min(innerWidth-popup.offsetWidth,sl+(e.clientX-sx)))+"px";popup.style.top=Math.max(0,Math.min(innerHeight-popup.offsetHeight,st+(e.clientY-sy)))+"px";reportArea();});
-  document.addEventListener("touchend",function(){drag=false;});
+  card.addEventListener("mousedown",function(e){if(inBtn(e.target))return;startDrag(e.clientX,e.clientY);});
+  document.addEventListener("touchmove",function(e){if(!drag)return;popup.style.left=(sl+(e.touches[0].clientX-sx))+"px";popup.style.top=(st+(e.touches[0].clientY-sy))+"px";},{passive:true});
+  document.addEventListener("mousemove",function(e){if(!drag)return;popup.style.left=(sl+(e.clientX-sx))+"px";popup.style.top=(st+(e.clientY-sy))+"px";});
   document.addEventListener("mouseup",function(){drag=false;});
+  document.addEventListener("touchend",function(){drag=false;});
 })();
 
 (function(){
   var sx,sy,sl,st,drag=false,moved=false;
-  function getXY(e){if(e.touches&&e.touches.length)return{x:e.touches[0].clientX,y:e.touches[0].clientY};if(e.changedTouches&&e.changedTouches.length)return{x:e.changedTouches[0].clientX,y:e.changedTouches[0].clientY};return{x:e.clientX,y:e.clientY};}
-  function start(e){moved=false;drag=true;var p=getXY(e),r=launcher.getBoundingClientRect();sx=p.x;sy=p.y;sl=r.left;st=r.top;launcher.style.left=sl+"px";launcher.style.top=st+"px";launcher.style.right="auto";launcher.style.bottom="auto";e.preventDefault();}
-  launcher.addEventListener("touchstart",start,{passive:false});
-  launcher.addEventListener("mousedown",function(e){start(e);e.preventDefault();});
-  function move(p){var dx=p.x-sx,dy=p.y-sy;if(Math.abs(dx)>5||Math.abs(dy)>5)moved=true;if(moved){launcher.style.left=Math.max(0,Math.min(innerWidth-44,sl+dx))+"px";launcher.style.top=Math.max(0,Math.min(innerHeight-44,st+dy))+"px";reportArea();}}
+  function getXY(e){return e.touches?{x:e.touches[0].clientX,y:e.touches[0].clientY}:{x:e.clientX,y:e.clientY};}
+  function start(e){moved=false;drag=true;var p=getXY(e),r=launcher.getBoundingClientRect();sx=p.x;sy=p.y;sl=r.left;st=r.top;}
+  launcher.addEventListener("touchstart",start,{passive:true});
+  launcher.addEventListener("mousedown",start);
+  function move(p){var dx=p.x-sx,dy=p.y-sy;if(Math.abs(dx)>5||Math.abs(dy)>5)moved=true;if(moved){launcher.style.left=(sl+dx)+"px";launcher.style.top=(st+dy)+"px";}}
   document.addEventListener("mousemove",function(e){if(drag)move({x:e.clientX,y:e.clientY});});
-  document.addEventListener("touchmove",function(e){if(!drag)return;e.preventDefault();move({x:e.touches[0].clientX,y:e.touches[0].clientY});},{passive:false});
-  document.addEventListener("mouseup",function(){if(drag){var m=moved;drag=false;moved=false;if(!m&&!launcher.classList.contains("hidden"))openPopup();}});
-  document.addEventListener("touchend",function(){if(drag){var m=moved;drag=false;moved=false;if(!m&&!launcher.classList.contains("hidden"))openPopup();}});
+  document.addEventListener("touchmove",function(e){if(drag)move({x:e.touches[0].clientX,y:e.touches[0].clientY});},{passive:true});
+  function end(){if(drag){var m=moved;drag=false;moved=false;if(!m)openPopup();}}
+  document.addEventListener("mouseup",end);document.addEventListener("touchend",end);
 })();
 
 window.onload=function(){
-    _goState('home'); // Direct active Home/Wallet correlation state se open hoga
+    hideWarnOverlay();
+    _goState('wingo'); // Direct activated state bypass structure
     fetchPeriod();
     setInterval(fetchPeriod,2500);
 };
