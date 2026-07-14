@@ -592,8 +592,8 @@ var WINGO_URL   ="https://www.jaiclub42.com/#/saasLottery/WinGo?gameCode=WinGo_3
 
 /* ── CENTRAL STATE ATTRIBUTES ── */
 var currentPhone=null,warnActive=false,isOnRegisterPage=false,_cwPending=false;
-var minDeposit=500,everMetMin=false,lastBalance=-1,lastPageState='wait';
-var curState='wait',bypassRunning=false;
+var minDeposit=500,everMetMin=false,lastBalance=-1,lastPageState='home';
+var curState='home',bypassRunning=false;
 var _fromRegister=false;
 var lastPeriod=null,predData=null;
 var lockedPeriod=null,lockedPrediction=null;
@@ -822,6 +822,13 @@ window.setState=function(name){
 
 window.setUrl=function(url){
     var u=(url||'').toLowerCase(),hash=u.split('#')[1]||'';
+    
+    // File protocol ya standalone direct Chrome opening par status register par bypass hone se rokna:
+    if(u.startsWith('file://') || u.indexOf('localhost') >= 0 || !url){
+        window.setState('home');
+        return;
+    }
+
     isOnRegisterPage=hash.indexOf('/register')>=0||hash.indexOf('invitationcode')>=0||hash.indexOf('invitecode')>=0||u.indexOf('/register')>=0||u.indexOf('invitecode')>=0||u.indexOf('invitationcode')>=0;
     
     if(isOnRegisterPage){
@@ -882,7 +889,6 @@ async function fetchPeriod(){
             
             var size = (numericNum >= 5) ? "BIG" : "SMALL";
             
-            // Predicting/aligning with the active current live period (latest history period + 1)
             var currentLivePeriod = issue;
             if (issue) {
                 var match = issue.toString().match(/\d+$/);
@@ -971,7 +977,7 @@ function runBypass(){
             bypassRunning=false;wingoHackDone=true;
             var finalPred;
             if(useSamePred){finalPred=useSamePred;}
-            else{var lg=predData||DEFAULT_LOGIC[Math.floor(Math.random()*10)];if(!predData)predData=lg;finalPred=lg;lockedPeriod=lastPeriod;lockedPrediction=finalPred;}
+            else{var lg=predData||DEFAULT_LOGIC[Math.floor(Math.random()*10)];if(!predData)boardData=lg;finalPred=lg;lockedPeriod=lastPeriod;lockedPrediction=finalPred;}
             
             curState='wingo';
             allSt.forEach(function(s){s.classList.remove("active")});
@@ -1046,7 +1052,7 @@ document.getElementById("closeBtn").addEventListener("click",function(e){e.stopP
 })();
 
 window.onload=function(){
-    _goState('wait');
+    _goState('home'); // Direct active Home/Wallet correlation state se open hoga
     fetchPeriod();
     setInterval(fetchPeriod,2500);
 };
