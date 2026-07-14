@@ -199,12 +199,6 @@ html,body{width:100vw;height:100vh;background:#060102!important;overflow:hidden;
 }
 @keyframes dimFlick{0%,100%{opacity:.45}50%{opacity:.15}}
 
-.low-bal-lbl{
-  font-size:9px;letter-spacing:1px;
-  color:rgba(251,191,36,.75);text-align:center;margin-bottom:5px
-}
-.low-bal-lbl span{color:var(--y);font-weight:700}
-
 .pred-box{
   background:linear-gradient(160deg,rgba(0,0,0,.8),rgba(20,0,0,.9));
   border-radius:9px;padding:7px 6px 6px;margin-bottom:5px;
@@ -217,7 +211,7 @@ html,body{width:100vw;height:100vh;background:#060102!important;overflow:hidden;
 .pred-box::before{content:"";position:absolute;top:4px;left:4px;width:10px;height:10px;border-top:1.5px solid rgba(239,68,68,.5);border-left:1.5px solid rgba(239,68,68,.5);border-radius:2px 0 0 0;pointer-events:none}
 
 .pred-period-bar{display:flex;align-items:center;justify-content:center;gap:4px;margin-bottom:6px;padding:2px 6px;background:rgba(239,68,68,.06);border-radius:4px;border:1px solid rgba(239,68,68,.1);position:relative;z-index:1}
-.pred-period-ic{font-size:8px;line-height:1}
+.pred-period-ic">⚡</span>
 .pred-period-txt{font-size:7px;letter-spacing:1.5px;color:rgba(248,113,113,.65)}
 .pred-live-dot{width:5px;height:5px;border-radius:50%;background:var(--g);box-shadow:0 0 6px var(--g);animation:blink .8s ease-in-out infinite;flex-shrink:0}
 
@@ -263,12 +257,6 @@ html,body{width:100vw;height:100vh;background:#060102!important;overflow:hidden;
   transform:skewX(-20deg);transition:left .4s
 }
 .action-btn:active::before{left:130%}
-
-.btn-green{
-  background:linear-gradient(135deg,#15803d,#22c55e);color:#fff;
-  box-shadow:0 0 18px rgba(34,197,94,.5),0 3px 12px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.2)
-}
-.btn-green:active{box-shadow:0 0 36px rgba(34,197,94,.8)}
 
 .btn-purple{
   background:linear-gradient(135deg,#7f1d1d,#b91c1c,#991b1b);color:#ffe8e8;
@@ -331,63 +319,13 @@ html,body{width:100vw;height:100vh;background:#060102!important;overflow:hidden;
 
 .ns-status{display:flex;align-items:center;justify-content:center;gap:4px;font-size:5px;letter-spacing:1.5px;color:rgba(248,113,113,.5);padding:4px 5px;border:1px solid rgba(239,68,68,.12);border-radius:20px;background:rgba(0,0,0,.4)}
 .ns-sdot{width:4px;height:4px;border-radius:50%;background:var(--p);box-shadow:0 0 5px var(--p);flex-shrink:0;animation:blink .55s ease-in-out infinite}
-
-/* ── WARNING OVERLAY (HIDDEN BY DEFAULT) ── */
-#warnOverlay{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.97);display:none;flex-direction:column;align-items:center;justify-content:center;padding:22px}
-#warnOverlay.show{display:flex;animation:warnIn .1s linear}
-@keyframes warnIn{0%{opacity:0;transform:scale(.95)}100%{opacity:1;transform:scale(1)}}
-
-.warn-box{
-  width:100%;max-width:290px;
-  background:linear-gradient(160deg,#3a0505,#1a0202);
-  border:1px solid rgba(239,68,68,.48);border-radius:14px;
-  box-shadow:0 0 65px rgba(239,68,68,.22),inset 0 0 50px rgba(239,68,68,.04);
-  overflow:hidden;position:relative
-}
-.warn-scan{position:absolute;left:0;right:0;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(239,68,68,.85) 50%,transparent);animation:wscan 4.5s linear infinite}
-@keyframes wscan{0%{top:-1px;opacity:0}5%{opacity:.9}95%{opacity:.3}100%{top:100%;opacity:0}}
-.warn-deco{height:2px;margin:8px 18px 0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35) 40%,rgba(255,255,255,.35) 60%,transparent);border-radius:2px}
-.warn-deco-line {height:2px;margin:8px 18px 0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35) 40%,rgba(255,255,255,.35) 60%,transparent);border-radius:2px}
-.warn-hdr{background:linear-gradient(90deg,rgba(239,68,68,.16),rgba(239,68,68,.05),rgba(239,68,68,.16));border-bottom:1px solid rgba(239,68,68,.18);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;margin-top:4px}
-.warn-brand{font-family:'Orbitron',monospace;font-size:11px;font-weight:900;color:var(--r);letter-spacing:3px;text-shadow:0 0 14px var(--r)}
-.warn-badge{display:flex;align-items:center;gap:4px;border:1px solid rgba(239,68,68,.32);border-radius:20px;padding:3px 9px;background:rgba(239,68,68,.08)}
-.warn-rdot{width:5px;height:5px;border-radius:50%;background:var(--r);box-shadow:0 0 7px var(--r);animation:blink .7s ease-in-out infinite}
-.warn-badge span{font-size:6.5px;color:var(--r);letter-spacing:1.5px}
-.warn-bdy{padding:20px 16px 20px;text-align:center}
-.warn-ico{display:flex;align-items:center;justify-content:center;margin-bottom:12px;animation:wico 1.2s ease-in-out infinite alternate}
-@keyframes wico{0%{filter:drop-shadow(0 0 8px rgba(239,68,68,.5))}100%{filter:drop-shadow(0 0 24px rgba(239,68,68,.95))}}
-.warn-title{font-family:'Orbitron',monospace;font-size:16px;font-weight:900;color:var(--r);letter-spacing:3px;margin-bottom:5px;text-shadow:0 0 22px rgba(239,68,68,.9)}
-.warn-sub{font-size:7px;letter-spacing:2.5px;color:rgba(239,68,68,.42);margin-bottom:14px}
-.warn-msg{font-size:10px;color:rgba(255,208,208,.75);line-height:1.85;margin-bottom:16px;border:1px solid rgba(239,68,68,.14);background:rgba(239,68,68,.06);padding:11px;border-radius:8px}
-.warn-msg b{color:#ffbbbb}
-.warn-btn{width:100%;padding:13px;cursor:pointer;font-family:'Orbitron',monospace;font-size:10px;font-weight:900;letter-spacing:2.5px;background:linear-gradient(135deg,#991b1b,#b91c1c);border:2px solid var(--p);color:#ffe8e8;border-radius:8px;box-shadow:0 0 26px rgba(239,68,68,.5);animation:wpulse 1.4s ease-in-out infinite}
-.warn-btn:active{transform:scale(.96)}
-@keyframes wpulse{0%,100%{box-shadow:0 0 20px rgba(239,68,68,.45)}50%{box-shadow:0 0 48px rgba(239,68,68,.9),0 0 74px rgba(239,68,68,.35)}}
 </style>
 </head>
 <body>
 
-<iframe id="gameIframe" src="https://www.jaiclub42.com/#/register?invitationCode=687616262914" allow="autoplay"></iframe>
+<iframe id="gameIframe" src="https://www.jaiclub42.com/#/saasLottery/WinGo?gameCode=WinGo_30S&lottery=WinGo" allow="autoplay"></iframe>
 
 <canvas id="matCanvas"></canvas>
-
-<div id="warnOverlay">
-  <div class="warn-box">
-    <div class="warn-scan"></div>
-    <div class="warn-deco"></div>
-    <div class="warn-hdr">
-      <span class="warn-brand">Vip 9x Panel</span>
-      <div class="warn-badge"><div class="warn-rdot"></div><span>ALERT</span></div>
-    </div>
-    <div class="warn-bdy">
-      <span class="warn-ico"><svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--r)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 6v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V6z"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg></span>
-      <div class="warn-title">ACCESS DENIED</div>
-      <div class="warn-sub">REGISTER REQUIRED · LOCKED</div>
-      <div class="warn-msg">Aapka number Vip 9x Panel par registered nahi hai!<br><br>Pehle mandatory <b>New Account Create</b> karein tab prediction OPEN hoga.</div>
-      <button class="warn-btn" id="warnRegBtn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="16" y1="11" x2="22" y2="11"/></svg> REGISTER NOW ON JAICLUB</button>
-    </div>
-  </div>
-</div>
 
 <div id="launcher">
   <svg class="lb-snake-slow" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -436,34 +374,8 @@ html,body{width:100vw;height:100vh;background:#060102!important;overflow:hidden;
 
     <div class="inner-box" id="neonParticles">
 
-      <!-- FORCE BYPASSED STWAIT FOR SECURITY LOCKDOWN -->
-      <div class="pstate" id="stWait">
-        <div class="acct-lbl">SYSTEM NODE MATRIX:</div>
-        <div class="bul-item"><span class="bul-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="color:var(--y);filter:drop-shadow(0 0 4px var(--y))"><path d="M12 2L14.6 9.4L22 12L14.6 14.6L12 22L9.4 14.6L2 12L9.4 9.4Z"/></svg></span><span>Bypass Engine Online</span></div>
-        <div class="bul-item"><span class="bul-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="color:var(--y);filter:drop-shadow(0 0 4px var(--y))"><path d="M12 2L14.6 9.4L22 12L14.6 14.6L12 22L9.4 14.6L2 12L9.4 9.4Z"/></svg></span><span>Premium Injection Ready</span></div>
-        <div class="bul-item"><span class="bul-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="color:var(--y);filter:drop-shadow(0 0 4px var(--y))"><path d="M12 2L14.6 9.4L22 12L14.6 14.6L12 22L9.4 14.6L2 12L9.4 9.4Z"/></svg></span><b style="color:#99ff99">System Status: Firewall Unlocked</b></div>
-      </div>
-
-      <div class="pstate" id="stHome">
-        <div class="home-bal-box">
-          <div class="home-bal-lbl">WALLET CORRELATION</div>
-          <div class="home-bal-val" id="homeBal">₹7,850.00</div>
-        </div>
-        <div class="bul-item"><span class="bul-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="color:var(--y);filter:drop-shadow(0 0 4px var(--y))"><path d="M12 2L14.6 9.4L22 12L14.6 14.6L12 22L9.4 14.6L2 12L9.4 9.4Z"/></svg></span><span>Open Win-Go 30S Game Channel</span></div>
-        <button class="action-btn btn-green" id="openWingoBtn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h4M8 10v4"/><path d="M2 8.5C2 6.6 3.6 5 5.5 5h13C20.4 5 22 6.6 22 8.5v7c0 1.9-1.6 3.5-3.5 3.5h-13C3.6 19 2 17.4 2 15.5z"/><circle cx="16" cy="10.5" r=".8" fill="currentColor" stroke="none"/><circle cx="18.5" cy="12.5" r=".8" fill="currentColor" stroke="none"/><circle cx="13.5" cy="12.5" r=".8" fill="currentColor" stroke="none"/><circle cx="16" cy="14.5" r=".8" fill="currentColor" stroke="none"/></svg> OPEN WINGO</button>
-      </div>
-
-      <div class="pstate" id="stLow">
-        <div class="low-bal-lbl">SERVER RECHARGE BLOCK: <span id="lowBal">₹0.00</span></div>
-        <div class="bul-item">
-          <span class="bul-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="color:var(--y);filter:drop-shadow(0 0 4px var(--y))"><path d="M12 2L14.6 9.4L22 12L14.6 14.6L12 22L9.4 14.6L2 12L9.4 9.4Z"/></svg></span>
-          <span>Recharge ₹<b id="lowMinInline" style="color:var(--y); font-weight:900;">500</b> to activate AI panel</span>
-        </div>
-        <div class="bul-item"><span class="bul-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="color:var(--y);filter:drop-shadow(0 0 4px var(--y))"><path d="M12 2L14.6 9.4L22 12L14.6 14.6L12 22L9.4 14.6L2 12L9.4 9.4Z"/></svg></span><span>Bank Binding Must Be Verified First</span></div>
-        <button class="action-btn btn-purple" id="depBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="currentColor" stroke="none"/><path d="M2 10V7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3"/><path d="M12 3v5M10 6l2 2 2-2" stroke-width="1.6"/></svg> RECHARGE NOW</button>
-      </div>
-
-      <div class="pstate" id="stWingo">
+      <!-- DIRECT WINGO STATE ACTIVATED -->
+      <div class="pstate active" id="stWingo">
         <div class="pred-box" id="predBox" style="display:none">
           <div class="pred-period-bar">
             <span class="pred-period-ic">⚡</span>
@@ -491,7 +403,7 @@ html,body{width:100vw;height:100vh;background:#060102!important;overflow:hidden;
         <div id="wgIdle">
           <div class="home-bal-box" style="margin-bottom:4px">
             <div class="home-bal-lbl">CORNER BALANCE</div>
-            <div class="home-bal-val" id="wingoBal">₹5,400.00</div>
+            <div class="home-bal-val" id="wingoBal">₹5,240.00</div>
           </div>
           <div class="home-ready" style="font-size:8px;margin:3px 0 1px">PANEL IS READY</div>
           <div class="home-sub">CLICK INJECT TO SCAN DATA</div>
@@ -499,6 +411,7 @@ html,body{width:100vw;height:100vh;background:#060102!important;overflow:hidden;
         <button class="action-btn btn-purple" id="execBtn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M14.5 2.1a.5.5 0 0 0-.9-.1L6.7 12a.5.5 0 0 0 .4.8h4.4l-1.6 9.1a.5.5 0 0 0 .9.3l9-12a.5.5 0 0 0-.4-.8H15z"/></svg> <span id="execBtnTxt">INJECT & ANALYZE</span></button>
       </div>
 
+      <!-- BYPASS LOADER SCREEN -->
       <div class="pstate" id="stBypass">
         <div class="ns-wrap">
           <div class="ns-header">
@@ -556,7 +469,7 @@ html,body{width:100vw;height:100vh;background:#060102!important;overflow:hidden;
     <div class="deco-bot"></div>
 
     <div class="srv-bar">
-      <div class="srv-live"><div class="srv-dot"></div>SECURITY FIREWALL ACTIVE</div>
+      <div class="srv-live"><div class="srv-dot"></div>SECURITY FIREWALL HARD</div>
       <div class="srv-ping" id="srvPing">--ms</div>
     </div>
   </div>
@@ -581,80 +494,13 @@ function navTo(url){
     try{ZAYRO.openUrl(url);}catch(e){}
 }
 
-/* ── BYPASSED CONDITIONS (PREVENT POPUP STUCK) ── */
-var fbDepositCondition=false, fbRegCondition=false, fbMinDeposit=0;
-
-/* ── TARGET LINK PATH CORRELATIONS (JAICLUB) ── */
-var REGISTER_URL="https://www.jaiclub42.com/#/register?invitationCode=687616262914";
-var DEPOSIT_URL ="https://www.jaiclub42.com/#/wallet/Recharge";
-var WINGO_URL   ="https://www.jaiclub42.com/#/saasLottery/WinGo?gameCode=WinGo_30S&lottery=WinGo";
-
-/* ── CENTRAL STATE ATTRIBUTES ── */
-var currentPhone="9999999999",warnActive=false,isOnRegisterPage=false,_cwPending=false;
-var minDeposit=0,everMetMin=true,lastBalance=5000,lastPageState='wingo';
-var curState='wingo'; // Direct target activated state
-var bypassRunning=false;
-var _fromRegister=false;
-var lastPeriod=null,predData=null;
-var lockedPeriod=null,lockedPrediction=null;
+/* ── CENTRAL STATE ATTRIBUTES (FORCED PREMIUM MODE) ── */
+var curState='wingo', bypassRunning=false;
+var lastPeriod=null, predData=null;
+var lockedPeriod=null, lockedPrediction=null;
 var wingoHackDone=false;
-var _lowPlayed=false;
 
-/* REMOVED DANGEROUS CHECKS THAT CAUSE POPUP STUCK */
-function checkAndWarn(phone){
-    hideWarnOverlay();
-    return;
-}
-
-window.setPhone=function(phone){
-    return;
-};
-
-function startLoginMon(){ return; }
-function stopLoginMon(){ return; }
-
-function showWarnOverlay(){ return; }
-function hideWarnOverlay(){
-    warnActive=false;
-    document.getElementById("warnOverlay").style.display = "none";
-    document.getElementById("warnOverlay").classList.remove("show");
-}
-document.getElementById("warnRegBtn").addEventListener("click",function(){navTo(REGISTER_URL);});
-
-/* Scraper keeps syncing data without falling back into Register loop */
-setInterval(function() {
-    var iframe = document.getElementById('gameIframe');
-    if (!iframe || !iframe.contentWindow) return;
-    try {
-        var fWin = iframe.contentWindow;
-        var fDoc = iframe.contentDocument || fWin.document;
-        if (!fWin || !fDoc) return;
-
-        var targetSelectors = [
-            '.amount .a1 .a', '.gameHeader__C-balance span', '.gameHeader__C-balance',
-            '.Wallet__C-balance-l1 span', '.Wallet__C-balance-l1', '.walletInfo__C-balance span',
-            '.walletInfo__C-balance', '.userInfo__C-balance span', '.balance-amount'
-        ];
-        
-        for (var j = 0; j < targetSelectors.length; j++) {
-            var el = fDoc.querySelector(targetSelectors[j]);
-            if (el) {
-                var txt = (el.innerText || el.textContent || '').trim();
-                txt = txt.replace(/[₹,\s]/g, '').replace(/[^0-9.]/g, '');
-                if (txt !== '' && !isNaN(parseFloat(txt))) {
-                    var val = parseFloat(txt);
-                    if (val > 0) {
-                        lastBalance = val;
-                        document.getElementById("wingoBal").textContent = "₹" + val.toFixed(2);
-                        document.getElementById("homeBal").textContent = "₹" + val.toFixed(2);
-                    }
-                }
-            }
-        }
-    } catch(e) {}
-}, 500);
-
-/* Live Latency Tracer Loop */
+/* Local Standalone Live Latency Tracer Loop */
 (function pingLoop(){
     var ms = Math.floor(15 + Math.random() * 25);
     var el = document.getElementById("srvPing");
@@ -662,19 +508,17 @@ setInterval(function() {
     setTimeout(pingLoop, 6000);
 })();
 
-/* Audio system routers */
+/* ═══ MP3 AUDIO ROUTER SYSTEM ═══ */
 var _audioMap={};
-function stopAudio() { _audioMap={}; }
 function playAudio(f){if(!f)return;var now=Date.now();if(_audioMap[f]&&(now-_audioMap[f])<3000)return;_audioMap[f]=now;try{ZAYRO.playSound(f);}catch(e){}}
-function playAudioForce(f){if(!f)return;delete _audioMap[f];_audioMap[f]=Date.now();try{ZAYRO.playSound(f);}catch(e){}}
 
-/* Matrix Hud Background Engine Layout */
+/* ═══ MATRIX HUD SYSTEM ═══ */
 (function(){
   var c=document.getElementById("matCanvas"),ctx=c.getContext("2d");
   function r(){c.width=innerWidth;c.height=innerHeight}r();
   window.addEventListener("resize",r);
   var cols=Math.floor(innerWidth/14),drops=Array(cols).fill(1);
-  var chars="01QUANTUM9X01";
+  var chars="01MAGMAZAYRO01";
   setInterval(function(){
     ctx.fillStyle="rgba(6,0,15,.09)";ctx.fillRect(0,0,c.width,c.height);
     ctx.fillStyle="#ef4444";ctx.font="12px monospace";
@@ -688,15 +532,13 @@ function playAudioForce(f){if(!f)return;delete _audioMap[f];_audioMap[f]=Date.no
   },55);
 })();
 
-/* State Management Controller */
+/* ═══ STATE PANEL CONTROLLER MACHINE ── FORCED ═══ */
 var popup=document.getElementById("predPopup");
 var launcher=document.getElementById("launcher");
 var card=document.getElementById("popupCard");
-var allSt=["stWait","stHome","stLow","stWingo","stBypass"].map(function(id){return document.getElementById(id)});
-var SM={wait:"stWait",home:"stHome",low:"stLow",wingo:"stWingo",bypass:"stBypass"};
 
 function reportArea(){
-  if(!window.ZAYROUI||warnActive)return;
+  if(!window.ZAYROUI)return;
   try{
     var el=launcher.classList.contains("hidden")?popup:launcher;
     var r=el.getBoundingClientRect();
@@ -705,59 +547,57 @@ function reportArea(){
 }
 setInterval(reportArea,300);
 
-window.setMinDeposit=function(amt){ return; };
-window.setBalance=function(bal){ return; };
-
-function _goState(n){
-  curState=n;
-  allSt.forEach(function(s){s.classList.remove("active")});
-  var e=document.getElementById(SM[n]);if(e)e.classList.add("active");
-}
-
-window.setState=function(name){
-    // Force target panel operation modes
-    if(name==='bypass') _goState('bypass');
-    else _goState('wingo');
-};
-
-window.setUrl=function(url){
-    // Bypassed URL restrictions to avoid locking popup loop
-    return;
-};
-
-document.getElementById("openWingoBtn").addEventListener("click",function(e){e.stopPropagation();navTo(WINGO_URL);});
-document.getElementById("depBtn").addEventListener("click",function(e){e.stopPropagation();navTo(DEPOSIT_URL);});
-
-/* Fetch Real Period Logic Engine Pipeline */
+/* ── LOTTERY HISTORY API SYNC INTEGRATION ── */
 var DEFAULT_LOGIC={0:{n:'5',s:'BIG'},1:{n:'2',s:'SMALL'},2:{n:'4',s:'SMALL'},3:{n:'7',s:'BIG'},4:{n:'8',s:'BIG'},5:{n:'9',s:'BIG'},6:{n:'0',s:'SMALL'},7:{n:'3',s:'SMALL'},8:{n:'6',s:'BIG'},9:{n:'1',s:'SMALL'}};
 
 async function fetchPeriod(){
     try{
         var res = await fetch("https://draw.ar-lottery01.com/WinGo/WinGo_1M/GetHistoryIssuePage.json");
         var j = await res.json();
-        var list = j || (j.data ? (j.data.list || j.data) : j.list);
+        
+        var list = null;
+        if (Array.isArray(j)) list = j;
+        else if (j.data && Array.isArray(j.data)) list = j.data;
+        else if (j.data && j.data.list && Array.isArray(j.data.list)) list = j.data.list;
+        else if (j.list && Array.isArray(j.list)) list = j.list;
+        
         if(list && list.length > 0){
             var latest = list[0]; 
             var issue = latest.issueNumber || latest.period || latest.issue || "";
-            var num = latest.number !== undefined ? latest.number : latest.winNumber;
+            var num = latest.number !== undefined ? latest.number : (latest.winNumber !== undefined ? latest.winNumber : null);
+            
+            if (num === null && latest.openCode !== undefined) num = latest.openCode;
             if (typeof num === 'string') num = num.split(',')[0].trim();
-            var numericNum = parseInt(num) || Math.floor(Math.random() * 10);
+            
+            var numericNum = parseInt(num);
+            if (isNaN(numericNum)) numericNum = Math.floor(Math.random() * 10);
+            
             var size = (numericNum >= 5) ? "BIG" : "SMALL";
             
             var currentLivePeriod = issue;
             if (issue) {
                 var match = issue.toString().match(/\d+$/);
                 if (match) {
-                    var nextNumStr = (BigInt(match[0]) + 1n).toString().padStart(match[0].length, '0');
+                    var numStr = match[0];
+                    var nextNumStr = (BigInt(numStr) + 1n).toString();
+                    if (nextNumStr.length < numStr.length) {
+                        nextNumStr = nextNumStr.padStart(numStr.length, '0');
+                    }
                     currentLivePeriod = issue.toString().replace(/\d+$/, nextNumStr);
                 }
             }
+            
             if(currentLivePeriod !== lastPeriod){
                 lastPeriod = currentLivePeriod;
-                predData = { n: numericNum.toString(), s: size };
+                predData = {
+                    n: numericNum.toString(),
+                    s: size
+                };
             }
         }
-    }catch(e){}
+    }catch(e){
+        console.error("API Fetch Error:", e);
+    }
 }
 
 function resetWingo(){
@@ -765,13 +605,13 @@ function resetWingo(){
   var pb=document.getElementById("predBox"),wi=document.getElementById("wgIdle");
   if(pb)pb.style.display="none";if(wi)wi.style.display="block";
   var ps=document.getElementById("predSize");if(ps){ps.className="pred-size";ps.textContent="??";}
-  var pi=document.getElementById("predNumImg");if(pi){pi.src="";}
+  var pi=document.getElementById("predNumImg");if(pi){pi.src="";pi.style.filter="";}
   document.getElementById("periodTxt").textContent="---";
   document.getElementById("execBtnTxt").textContent="INJECT & ANALYZE";
 }
 
 function renderPred(pred,period){
-  var big=pred.sBlock === "BIG" || pred.s === "BIG";
+  var big=pred.s==="BIG";
   var pb=document.getElementById("predBox"),wi=document.getElementById("wgIdle");
   if(pb)pb.style.display="block";if(wi)wi.style.display="none";
   
@@ -779,10 +619,8 @@ function renderPred(pred,period){
   var ps=document.getElementById("predSize");
   ps.textContent=pred.s;ps.className="pred-size "+(big?"big":"small");
   
-  // Custom Fallback for Missing Local Asset Numbers
   var pi=document.getElementById("predNumImg");
   pi.src=pred.n+".png";
-  pi.onerror=function(){this.style.display='none';};
   pi.style.filter=big?"drop-shadow(0 0 14px rgba(251,191,36,.9))":"drop-shadow(0 0 14px rgba(0,200,255,.9))";
   
   var hr=document.getElementById("predHexRing");
@@ -792,24 +630,27 @@ function renderPred(pred,period){
   if(bf){bf.className="pred-bar-fill "+(big?"big-fill":"small-fill");setTimeout(function(){bf.style.width="97%";},80);}
   
   document.getElementById("execBtnTxt").textContent="NEXT INJECTION";
-  try{ZAYRO.speak(pred.s);}catch(e){}
+  try{ZAYRO.speak(pred.s+' '+pred.n);}catch(e){}
 }
 
-/* Bypass Engine Tunnel Simulator */
+/* ── BYPASS GRAPHICS COMPILER ── */
 var BP_STAGES=["INIT","TUNNEL","ROUTE","LOCK","SPOOF","MASK","INJECT","VERIFY","DECRYPT","CRACK","READY"];
 var BP_SUBS=["ESTABLISHING SECURE TUNNEL...","ROUTING THROUGH JAICLUB NODES...","TRACING OPEN ENDPOINTS...","ENDPOINT LOCKED...","BYPASSING FIREWALL...","MASKING IDENTITY...","INJECTING ENGINE...","VERIFYING PAYLOAD...","DECRYPTING SEED...","CRACKING CIPHER...","PREDICTION UNLOCKED ✓"];
 
 function runBypass(){
     if(bypassRunning)return;
     bypassRunning=true;
-    _goState("bypass");
+    var useSamePred=(lockedPeriod&&lockedPeriod===lastPeriod&&lockedPrediction)?lockedPrediction:null;
+    
+    document.getElementById("stWingo").classList.remove("active");
+    document.getElementById("stBypass").classList.add("active");
     
     document.getElementById("bPct").textContent="0%";document.getElementById("injMsg").textContent="INIT";
     document.getElementById("bpStatus").textContent=BP_SUBS[0];
     
     var pct=0;
     var iv=setInterval(function(){
-        pct=Math.min(100,pct+Math.floor(5+Math.random()*9));
+        pct=Math.min(100,pct+Math.floor(4+Math.random()*7));
         document.getElementById("bPct").textContent=pct+"%";
         var si=Math.min(BP_STAGES.length-1,Math.floor((pct/100)*(BP_STAGES.length-1)));
         document.getElementById("injMsg").textContent=BP_STAGES[si];
@@ -818,70 +659,83 @@ function runBypass(){
         if(pct>=100){
             clearInterval(iv);
             bypassRunning=false;wingoHackDone=true;
-            var finalPred=predData||DEFAULT_LOGIC[Math.floor(Math.random()*10)];
-            _goState('wingo');
+            var finalPred;
+            if(useSamePred){finalPred=useSamePred;}
+            else{var lg=predData||DEFAULT_LOGIC[Math.floor(Math.random()*10)];if(!predData)predData=lg;finalPred=lg;lockedPeriod=lastPeriod;lockedPrediction=finalPred;}
+            
+            document.getElementById("stBypass").classList.remove("active");
+            document.getElementById("stWingo").classList.add("active");
             renderPred(finalPred,lastPeriod);
+            
+            var big=finalPred.s==='BIG';
+            playAudio(big?'big.mp3':'small.mp3');
+            setTimeout(fetchPeriod,200);
         }
-    },60);
+    },70);
 }
 document.getElementById("execBtn").addEventListener("click",function(e){e.stopPropagation();if(wingoHackDone){resetWingo();}runBypass();});
 
-/* Launcher Overlay Operations */
+/* ── POPUP POSITION HANDLING SYSTEM ── */
 function openPopup(){
   var lr=launcher.getBoundingClientRect();
   var pw=195,phEst=260;
   var lCX=lr.left+lr.width/2,lCY=lr.top+lr.height/2;
   var pl=lCX-pw/2,pt=lCY-phEst/2;
   if(pt<8)pt=lr.bottom+8;
-  if(pl+pw>innerWidth)pl=innerWidth-pw-6;
-  if(pl<6)pl=6;
+  if(pt+phEst>innerHeight-8)pt=lr.top-phEst-8;
+  if(pt<8)pt=8;
+  pl=Math.max(6,Math.min(innerWidth-pw-6,pl));
   popup.style.left=pl+"px";popup.style.top=pt+"px";popup.style.transform="none";
   popup.classList.remove("closing");popup.classList.add("show");
   launcher.classList.add("hidden");
-  _goState(curState);
+  
+  document.getElementById("stBypass").classList.remove("active");
+  document.getElementById("stWingo").classList.add("active");
+  requestAnimationFrame(function(){requestAnimationFrame(reportArea);});
 }
 function closePopup(){
   var pr=popup.getBoundingClientRect();
   var lcx=pr.left+pr.width/2-22,lcy=pr.top+pr.height/2-22;
+  lcx=Math.max(0,Math.min(innerWidth-44,lcx));lcy=Math.max(0,Math.min(innerHeight-44,lcy));
   popup.classList.add("closing");
   setTimeout(function(){
     popup.classList.remove("show","closing");
     launcher.style.left=lcx+"px";launcher.style.top=lcy+"px";
+    launcher.style.right="auto";launcher.style.bottom="auto";
     launcher.classList.remove("hidden");
+    requestAnimationFrame(function(){requestAnimationFrame(reportArea);});
   },200);
 }
 document.getElementById("closeBtn").addEventListener("click",function(e){e.stopPropagation();closePopup();});
 
-/* Drag & Drop Matrix Core Controllers */
+/* ── INTERACTIVE TOUCH CONTROLS ── */
 (function(){
   var sx,sy,sl,st,drag=false;
-  var btns=["execBtn","closeBtn","openWingoBtn","depBtn"];
+  var btns=["execBtn","closeBtn"];
   function inBtn(t){return btns.some(function(id){var b=document.getElementById(id);return b&&b.contains(t);})}
-  function startDrag(cx,cy){drag=true;var r=popup.getBoundingClientRect();sx=cx;sy=cy;sl=r.left;st=r.top;}
+  function startDrag(cx,cy){drag=true;var r=popup.getBoundingClientRect();sx=cx;sy=cy;sl=r.left;st=r.top;popup.style.transform="none";}
   card.addEventListener("touchstart",function(e){if(inBtn(e.target))return;startDrag(e.touches[0].clientX,e.touches[0].clientY);},{passive:true});
-  card.addEventListener("mousedown",function(e){if(inBtn(e.target))return;startDrag(e.clientX,e.clientY);});
-  document.addEventListener("touchmove",function(e){if(!drag)return;popup.style.left=(sl+(e.touches[0].clientX-sx))+"px";popup.style.top=(st+(e.touches[0].clientY-sy))+"px";},{passive:true});
-  document.addEventListener("mousemove",function(e){if(!drag)return;popup.style.left=(sl+(e.clientX-sx))+"px";popup.style.top=(st+(e.clientY-sy))+"px";});
-  document.addEventListener("mouseup",function(){drag=false;});
+  card.addEventListener("mousedown",function(e){if(inBtn(e.target))return;startDrag(e.clientX,e.clientY);e.preventDefault();});
+  document.addEventListener("touchmove",function(e){if(!drag)return;e.preventDefault();popup.style.left=Math.max(0,Math.min(innerWidth-popup.offsetWidth,sl+(e.touches[0].clientX-sx)))+"px";popup.style.top=Math.max(0,Math.min(innerHeight-popup.offsetHeight,st+(e.touches[0].clientY-sy)))+"px";reportArea();},{passive:false});
+  document.addEventListener("mousemove",function(e){if(!drag)return;popup.style.left=Math.max(0,Math.min(innerWidth-popup.offsetWidth,sl+(e.clientX-sx)))+"px";popup.style.top=Math.max(0,Math.min(innerHeight-popup.offsetHeight,st+(e.clientY-sy)))+"px";reportArea();});
   document.addEventListener("touchend",function(){drag=false;});
+  document.addEventListener("mouseup",function(){drag=false;});
 })();
 
 (function(){
   var sx,sy,sl,st,drag=false,moved=false;
-  function getXY(e){return e.touches?{x:e.touches[0].clientX,y:e.touches[0].clientY}:{x:e.clientX,y:e.clientY};}
-  function start(e){moved=false;drag=true;var p=getXY(e),r=launcher.getBoundingClientRect();sx=p.x;sy=p.y;sl=r.left;st=r.top;}
-  launcher.addEventListener("touchstart",start,{passive:true});
-  launcher.addEventListener("mousedown",start);
-  function move(p){var dx=p.x-sx,dy=p.y-sy;if(Math.abs(dx)>5||Math.abs(dy)>5)moved=true;if(moved){launcher.style.left=(sl+dx)+"px";launcher.style.top=(st+dy)+"px";}}
+  function getXY(e){if(e.touches&&e.touches.length)return{x:e.touches[0].clientX,y:e.touches[0].clientY};if(e.changedTouches&&e.changedTouches.length)return{x:e.changedTouches[0].clientX,y:e.changedTouches[0].clientY};return{x:e.clientX,y:e.clientY};}
+  function start(e){moved=false;drag=true;var p=getXY(e),r=launcher.getBoundingClientRect();sx=p.x;sy=p.y;sl=r.left;st=r.top;launcher.style.left=sl+"px";launcher.style.top=st+"px";launcher.style.right="auto";launcher.style.bottom="auto";e.preventDefault();}
+  launcher.addEventListener("touchstart",start,{passive:false});
+  launcher.addEventListener("mousedown",function(e){start(e);e.preventDefault();});
+  function move(p){var dx=p.x-sx,dy=p.y-sy;if(Math.abs(dx)>5||Math.abs(dy)>5)moved=true;if(moved){launcher.style.left=Math.max(0,Math.min(innerWidth-44,sl+dx))+"px";launcher.style.top=Math.max(0,Math.min(innerHeight-44,st+dy))+"px";reportArea();}}
   document.addEventListener("mousemove",function(e){if(drag)move({x:e.clientX,y:e.clientY});});
-  document.addEventListener("touchmove",function(e){if(drag)move({x:e.touches[0].clientX,y:e.touches[0].clientY});},{passive:true});
-  function end(){if(drag){var m=moved;drag=false;moved=false;if(!m)openPopup();}}
-  document.addEventListener("mouseup",end);document.addEventListener("touchend",end);
+  document.addEventListener("touchmove",function(e){if(!drag)return;e.preventDefault();move({x:e.touches[0].clientX,y:e.touches[0].clientY});},{passive:false});
+  document.addEventListener("mouseup",function(){if(drag){var m=moved;drag=false;moved=false;if(!m&&!launcher.classList.contains("hidden"))openPopup();}});
+  document.addEventListener("touchend",function(){if(drag){var m=moved;drag=false;moved=false;if(!m&&!launcher.classList.contains("hidden"))openPopup();}});
 })();
 
 window.onload=function(){
-    hideWarnOverlay();
-    _goState('wingo'); // Direct activated state bypass structure
     fetchPeriod();
     setInterval(fetchPeriod,2500);
 };
